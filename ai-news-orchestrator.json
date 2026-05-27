@@ -1,0 +1,2893 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 5
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -304,
+        2256
+      ],
+      "id": "3fe2cb09-4ee1-4be8-9ac6-966030fcd87c",
+      "name": "Schedule Trigger",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-5.4-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-5.4-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are an elite AI model analyst.\n\nYou may or may not receive article/news input from the workflow.\n\nRules:\n1. If articles, RSS feeds, summaries, or links are provided:\n   - analyze them\n   - extract the most important information\n   - identify patterns and implications\n\n2. Regardless of whether input is provided:\n   - use web search to discover additional important developments\n   - verify major claims\n   - find related announcements, launches, benchmarks, and ecosystem shifts\n\n3. Combine:\n   - provided workflow inputs\n   - your own web research\n   into a single high-signal summary.\n\nFocus on:\n- model launches\n- benchmark improvements\n- multimodal capabilities\n- reasoning improvements\n- inference efficiency\n- pricing/API changes\n- context window changes\n- agentic capabilities\n- important lab strategies\n\nLabs include:\n- OpenAI\n- Anthropic\n- Google DeepMind\n- Meta AI\n- xAI\n- Mistral\n- Cohere\n\nIgnore:\n- marketing fluff\n- repetitive announcements\n- low-impact updates\n\nFormat:\n\n# Model News\n\n## Major Developments\n- concise bullets\n\n## Emerging Trends\n- concise bullets\n\n## Important Implications\n- concise bullets\n\nRequirements:\n- High signal only\n- Concise\n- Maximum 1500 characters\n\nWorkflow Input:\n{{ JSON.stringify($input.all()) }}"
+            }
+          ]
+        },
+        "builtInTools": {
+          "webSearch": {
+            "searchContextSize": "medium"
+          }
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        2864,
+        0
+      ],
+      "id": "53ceadbc-84ef-49fb-8430-1f2d1e0c7600",
+      "name": "Daily AI Intelligence Digest1",
+      "credentials": {
+        "openAiApi": {
+          "id": "K8iLaOaCBwQLwV7B",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-5.4-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-5.4-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are an elite AI research analyst.\n\nYou may or may not receive article/news input from the workflow.\n\nRules:\n1. If articles, RSS feeds, summaries, or links are provided:\n   - analyze them\n   - extract the most important research developments\n   - identify patterns and implications\n\n2. Regardless of whether input is provided:\n   - use web search to discover additional important AI research developments\n   - verify major claims\n   - find related papers, benchmarks, architectures, and ecosystem shifts\n\n3. Combine:\n   - provided workflow inputs\n   - your own web research\n   into a single high-signal summary.\n\nFocus on:\n- breakthroughs\n- new architectures\n- reasoning advances\n- multimodal research\n- robotics research\n- agent research\n- benchmarks/evaluations\n- inference/training efficiency\n- notable papers\n\nExplain:\n- why the research matters\n- future implications\n- likely industry impact\n\nIgnore:\n- low-signal papers\n- repetitive research\n- marketing fluff\n\nFormat:\n\n# AI Research\n\n## Major Developments\n- concise bullets\n\n## Emerging Trends\n- concise bullets\n\n## Important Implications\n- concise bullets\n\nRequirements:\n- High signal only\n- Concise\n- Maximum 1500 characters\n\nWorkflow Input:\n{{ JSON.stringify($input.all()) }}"
+            }
+          ]
+        },
+        "builtInTools": {
+          "webSearch": {
+            "searchContextSize": "medium"
+          }
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        2864,
+        512
+      ],
+      "id": "ad41716f-051c-4d29-8ca1-8d2f40b3fdda",
+      "name": "Daily AI Intelligence Digest2",
+      "credentials": {
+        "openAiApi": {
+          "id": "K8iLaOaCBwQLwV7B",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-5.4-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-5.4-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are an AI startup and venture analyst.\n\nAnalyze the startup and business updates below.\n\nFocus on:\n- funding rounds\n- acquisitions\n- startup launches\n- enterprise adoption\n- monetization\n- product-market fit signals\n- layoffs due to AI\n- competitive positioning\n\nIdentify:\n- emerging categories\n- business trends\n- startup opportunities\n\nIgnore:\n- low-value PR\n- repetitive announcements\n\nFormat:\n# AI Startup News\n\n- concise bullets\n- why it matters\n- future implications\n\nMaximum 1500 characters.\n\nArticles:\n{{ JSON.stringify($input.all()) }}"
+            }
+          ]
+        },
+        "builtInTools": {
+          "webSearch": {
+            "searchContextSize": "medium"
+          }
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        2864,
+        1024
+      ],
+      "id": "1c7c826a-3698-4d09-87f2-0f8c607c3365",
+      "name": "Daily AI Intelligence Digest3",
+      "credentials": {
+        "openAiApi": {
+          "id": "K8iLaOaCBwQLwV7B",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-5.4-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-5.4-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are an AI agents and autonomy analyst.\n\nAnalyze the updates below.\n\nFocus on:\n- autonomous agents\n- multi-agent systems\n- orchestration\n- workflow automation\n- browser agents\n- coding agents\n- enterprise agents\n- memory systems\n- planning/reasoning systems\n\nIdentify:\n- emerging agent capabilities\n- real-world deployment trends\n- infrastructure needs\n- future implications\n\nIgnore:\n- generic chatbot news\n- low-signal hype\n\nFormat:\n# AI Agents\n\n- concise bullets\n- important implications\n- emerging trends\n\nMaximum 1500 characters.\n\nArticles:\n{{ JSON.stringify($input.all()) }}"
+            }
+          ]
+        },
+        "builtInTools": {
+          "webSearch": {
+            "searchContextSize": "medium"
+          }
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        2864,
+        1488
+      ],
+      "id": "905af9ca-aee0-4ef0-9225-bbbde60ec014",
+      "name": "Daily AI Intelligence Digest4",
+      "credentials": {
+        "openAiApi": {
+          "id": "K8iLaOaCBwQLwV7B",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-5.4-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-5.4-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are an open-source AI analyst.\n\nFocus on:\n- open-source models\n- GitHub projects\n- developer ecosystems\n- inference frameworks\n- tooling\n- self-hosting\n- local AI\n- community momentum\n\nIdentify:\n- important repositories\n- ecosystem shifts\n- rapidly growing projects\n- developer adoption trends\n\nFormat:\n# Open Source AI\n\n- concise bullets\n- practical implications\n- ecosystem impact\n\nMaximum 1500 characters.\n\nArticles:\n{{ JSON.stringify($input.all()) }}"
+            }
+          ]
+        },
+        "builtInTools": {
+          "webSearch": {
+            "searchContextSize": "medium"
+          }
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        2864,
+        1856
+      ],
+      "id": "97407be8-94a7-4c65-9069-2ac44a85e6c1",
+      "name": "Daily AI Intelligence Digest5",
+      "credentials": {
+        "openAiApi": {
+          "id": "K8iLaOaCBwQLwV7B",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://discord.com/api/webhooks/REDACTED",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "content",
+              "value": "={{$json.content}}"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        6832,
+        2224
+      ],
+      "id": "39ae3b9a-1654-445d-94f9-96c44ae8d460",
+      "name": "ai-news",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://discord.com/api/webhooks/REDACTED",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "content",
+              "value": "={{$json.content}}"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        6768,
+        112
+      ],
+      "id": "8480ad03-3509-404e-a5c0-38eaae0fc1e4",
+      "name": "model-news",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://discord.com/api/webhooks/REDACTED",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "content",
+              "value": "={{$json.content}}"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        6784,
+        576
+      ],
+      "id": "38dd5739-f719-41c2-b574-5e8496280163",
+      "name": "research-news",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://discord.com/api/webhooks/REDACTED",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "content",
+              "value": "={{$json.content}}"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        6784,
+        1136
+      ],
+      "id": "91184ff2-c469-4085-93f5-23320a62cd2f",
+      "name": "startup-news",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://discord.com/api/webhooks/REDACTED",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "content",
+              "value": "={{$json.content}}"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        6800,
+        1584
+      ],
+      "id": "866de1d7-30ca-4387-862a-8b00362db9b6",
+      "name": "ai-agents",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://discord.com/api/webhooks/REDACTED",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "content",
+              "value": "={{$json.content}}"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        6800,
+        1904
+      ],
+      "id": "81bf67fc-5766-4806-bc17-802b96f3f8dd",
+      "name": "open-source-ai",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-5.4-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-5.4-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are an AI infrastructure analyst.\n\nFocus on:\n- GPUs\n- inference infrastructure\n- vector databases\n- cloud AI\n- APIs\n- training infrastructure\n- latency optimization\n- webhooks/event systems\n- scaling systems\n\nIdentify:\n- infrastructure bottlenecks\n- important platform changes\n- ecosystem shifts\n- enterprise implications\n\nFormat:\n# AI Infrastructure\n\n- concise bullets\n- high signal only\n\nMaximum 1500 characters.\n\nArticles:\n{{ JSON.stringify($input.all()) }}"
+            }
+          ]
+        },
+        "builtInTools": {
+          "webSearch": {
+            "searchContextSize": "medium"
+          }
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        2864,
+        2272
+      ],
+      "id": "edc92a55-2b1d-4f77-98ae-f8f0468a20bb",
+      "name": "Daily AI Intelligence Digest6",
+      "credentials": {
+        "openAiApi": {
+          "id": "K8iLaOaCBwQLwV7B",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-5.4-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-5.4-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are an AI robotics analyst.\n\nFocus on:\n- humanoid robotics\n- embodied AI\n- multimodal robotics\n- autonomous systems\n- industrial robotics\n- robot foundation models\n- simulation/training systems\n\nIdentify:\n- breakthroughs\n- deployment trends\n- future implications\n\nFormat:\n# AI Robotics\n\n- concise bullets\n- practical implications\n- future trends\n\nMaximum 1500 characters.\n\nArticles:\n{{ JSON.stringify($input.all()) }}"
+            }
+          ]
+        },
+        "builtInTools": {
+          "webSearch": {
+            "searchContextSize": "medium"
+          }
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        2864,
+        2688
+      ],
+      "id": "96e9e66a-e953-46d6-b54e-eb638c2c7014",
+      "name": "Daily AI Intelligence Digest7",
+      "credentials": {
+        "openAiApi": {
+          "id": "K8iLaOaCBwQLwV7B",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-5.4-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-5.4-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are an AI developer tools analyst.\n\nFocus on:\n- coding copilots\n- AI IDEs\n- autonomous coding systems\n- dev workflows\n- code generation\n- debugging agents\n- infrastructure for developers\n\nIdentify:\n- productivity shifts\n- important tools\n- emerging workflows\n\nFormat:\n# AI Dev Tools\n\n- concise bullets\n- workflow implications\n- important releases\n\nMaximum 1500 characters.\n\nArticles:\n{{ JSON.stringify($input.all()) }}"
+            }
+          ]
+        },
+        "builtInTools": {
+          "webSearch": {
+            "searchContextSize": "medium"
+          }
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        2864,
+        3088
+      ],
+      "id": "50e8ea25-ec50-465c-8325-3606e66868bb",
+      "name": "Daily AI Intelligence Digest8",
+      "credentials": {
+        "openAiApi": {
+          "id": "K8iLaOaCBwQLwV7B",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-5.4-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-5.4-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are an enterprise AI analyst.\n\nFocus on:\n- enterprise adoption\n- AI transformation\n- operational automation\n- enterprise agents\n- workflow integration\n- ROI/productivity signals\n- large-scale deployments\n\nIdentify:\n- where enterprises are investing\n- adoption patterns\n- operational shifts\n\nFormat:\n# Enterprise AI\n\n- concise bullets\n- business implications\n- adoption trends\n\nMaximum 1500 characters.\n\nArticles:\n{{ JSON.stringify($input.all()) }}"
+            }
+          ]
+        },
+        "builtInTools": {
+          "webSearch": {
+            "searchContextSize": "medium"
+          }
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        2848,
+        3472
+      ],
+      "id": "a5a627db-55b2-4330-b871-6dd22eb169b1",
+      "name": "Daily AI Intelligence Digest9",
+      "credentials": {
+        "openAiApi": {
+          "id": "K8iLaOaCBwQLwV7B",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-5.4-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-5.4-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are a generative media AI analyst.\n\nFocus on:\n- video generation\n- image generation\n- voice synthesis\n- creative tooling\n- media workflows\n- entertainment AI\n- creator tools\n\nIdentify:\n- major capability jumps\n- creator economy implications\n- emerging media trends\n\nFormat:\n# Generative Media AI\n\n- concise bullets\n- future implications\n- important launches\n\nMaximum 1500 characters.\n\nArticles:\n{{ JSON.stringify($input.all()) }}"
+            }
+          ]
+        },
+        "builtInTools": {
+          "webSearch": {
+            "searchContextSize": "medium"
+          }
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        2832,
+        3856
+      ],
+      "id": "a0b7b9ab-b92c-4155-b1b9-13479576ebc9",
+      "name": "Daily AI Intelligence Digest10",
+      "credentials": {
+        "openAiApi": {
+          "id": "K8iLaOaCBwQLwV7B",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-5.4-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-5.4-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are a strategic AI futurist.\n\nAnalyze the updates below and identify:\n- long-term shifts\n- emerging patterns\n- market direction\n- future AI behaviors\n- societal implications\n- ecosystem convergence\n\nFocus on:\n- what changes over the next 1–5 years\n- second-order effects\n- strategic opportunities\n\nFormat:\n# Future of AI\n\n- concise bullets\n- future implications\n- ecosystem shifts\n\nMaximum 1500 characters.\n\nArticles:\n{{ JSON.stringify($input.all()) }}"
+            }
+          ]
+        },
+        "builtInTools": {
+          "webSearch": {
+            "searchContextSize": "medium"
+          }
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        2832,
+        4240
+      ],
+      "id": "428b7ebf-e569-4b74-9fd9-e96af94231d5",
+      "name": "Daily AI Intelligence Digest11",
+      "credentials": {
+        "openAiApi": {
+          "id": "K8iLaOaCBwQLwV7B",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-5.4-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-5.4-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are an AI security analyst.\n\nFocus on:\n- model security\n- jailbreaks\n- AI cyber threats\n- agent security\n- infrastructure vulnerabilities\n- enterprise AI risks\n- safety systems\n\nIdentify:\n- emerging threats\n- security trends\n- critical risks\n\nFormat:\n# AI Security\n\n- concise bullets\n- high signal only\n\nMaximum 1500 characters.\n\nArticles:\n{{ JSON.stringify($input.all()) }}"
+            }
+          ]
+        },
+        "builtInTools": {
+          "webSearch": {
+            "searchContextSize": "medium"
+          }
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        2816,
+        4560
+      ],
+      "id": "78417f53-679a-4ed0-9af6-aaeed6d03f63",
+      "name": "Daily AI Intelligence Digest12",
+      "credentials": {
+        "openAiApi": {
+          "id": "K8iLaOaCBwQLwV7B",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://discord.com/api/webhooks/REDACTED",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "content",
+              "value": "={{$json.content}}"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        6864,
+        2592
+      ],
+      "id": "c691c169-b61b-47ab-9ac6-5251465ca09a",
+      "name": "infrastructure-ai",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://discord.com/api/webhooks/REDACTED",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "content",
+              "value": "={{$json.content}}"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        6928,
+        3040
+      ],
+      "id": "68a99985-8823-4e4a-a443-6fe4b4a7e412",
+      "name": "robotics-ai",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://discord.com/api/webhooks/REDACTED",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "content",
+              "value": "={{$json.content}}"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        6944,
+        3296
+      ],
+      "id": "61336e17-d557-477c-b4e0-94818aebda86",
+      "name": "coding-tools",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://discord.com/api/webhooks/REDACTED",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "content",
+              "value": "={{$json.content}}"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        6992,
+        3568
+      ],
+      "id": "3bbbdde9-162f-464a-b250-91d9699fe842",
+      "name": "enterprise-ai",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://discord.com/api/webhooks/REDACTED",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "content",
+              "value": "={{$json.content}}"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        7040,
+        3840
+      ],
+      "id": "7c23875b-4757-4367-8cbc-d2a64503cddc",
+      "name": "video-image-ai",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://discord.com/api/webhooks/REDACTED",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "content",
+              "value": "={{$json.content}}"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        7136,
+        4192
+      ],
+      "id": "fe44f9d9-6615-4f7b-8e3c-e0d963d3b5e9",
+      "name": "future-trends",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://discord.com/api/webhooks/REDACTED",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "content",
+              "value": "={{$json.content}}"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        7152,
+        4560
+      ],
+      "id": "51539fb4-2c5c-4594-8aab-e6de307d71c2",
+      "name": "security-ai",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-5.4-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-5.4-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are an AI policy and regulation analyst.\n\nFocus on:\n- AI laws\n- regulation\n- governance\n- compliance\n- copyright\n- geopolitical AI competition\n- safety regulation\n\nIdentify:\n- important legal shifts\n- enterprise implications\n- global AI policy trends\n\nFormat:\n# AI Regulation\n\n- concise bullets\n- strategic implications\n\nMaximum 1500 characters.\n\nArticles:\n{{ JSON.stringify($input.all()) }}"
+            }
+          ]
+        },
+        "builtInTools": {
+          "webSearch": {
+            "searchContextSize": "medium"
+          }
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        2816,
+        4880
+      ],
+      "id": "4b1ca705-f31a-4d9f-94a8-42aab7430af2",
+      "name": "Daily AI Intelligence Digest13",
+      "credentials": {
+        "openAiApi": {
+          "id": "K8iLaOaCBwQLwV7B",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-5.4-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-5.4-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are an AI funding and M&A analyst.\n\nFocus on:\n- funding rounds\n- acquisitions\n- investments\n- partnerships\n- strategic deals\n- market consolidation\n\nIdentify:\n- where capital is flowing\n- emerging sectors\n- investor trends\n- strategic positioning\n\nFormat:\n# AI Funding & Deals\n\n- concise bullets\n- market implications\n- strategic trends\n\nMaximum 1500 characters.\n\nArticles:\n{{ JSON.stringify($input.all()) }}"
+            }
+          ]
+        },
+        "builtInTools": {
+          "webSearch": {
+            "searchContextSize": "medium"
+          }
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        2816,
+        5184
+      ],
+      "id": "848a65b9-fe90-41f6-b418-a08a7d109228",
+      "name": "Daily AI Intelligence Digest14",
+      "credentials": {
+        "openAiApi": {
+          "id": "K8iLaOaCBwQLwV7B",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-5.4-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-5.4-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are an AI opportunity analyst.\n\nAnalyze all updates and identify:\n- startup opportunities\n- workflow automation ideas\n- underserved markets\n- emerging pain points\n- products worth building\n- market gaps\n\nFocus on:\n- practical opportunities\n- realistic AI products\n- scalable workflow ideas\n\nFormat:\n# Build Opportunities\n\n- opportunity\n- why now\n- potential users\n- potential moat\n\nMaximum 1500 characters.\n\nArticles:\n{{ JSON.stringify($input.all()) }}"
+            }
+          ]
+        },
+        "builtInTools": {
+          "webSearch": {
+            "searchContextSize": "medium"
+          }
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        2832,
+        5504
+      ],
+      "id": "a759a8ec-0017-4eee-b906-be081f177dc9",
+      "name": "Daily AI Intelligence Digest15",
+      "credentials": {
+        "openAiApi": {
+          "id": "K8iLaOaCBwQLwV7B",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-5.4-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-5.4-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are an AI hardware and compute analyst.\n\nAnalyze the updates below.\n\nFocus on:\n- GPUs\n- TPUs\n- AI chips\n- inference hardware\n- AI datacenters\n- robotics hardware\n- edge AI\n- semiconductor competition\n- power/cooling infrastructure\n- memory/bandwidth advances\n- AI compute economics\n\nTrack companies like:\n- NVIDIA\n- AMD\n- Intel\n- TSMC\n- Cerebras\n- Groq\n- Tenstorrent\n- Qualcomm\n- Apple Silicon\n- Google TPU\n- Amazon Trainium/Inferentia\n\nIdentify:\n- compute bottlenecks\n- major hardware shifts\n- inference cost trends\n- geopolitical implications\n- scaling limitations\n- future infrastructure trends\n\nIgnore:\n- generic gaming hardware news\n- low-impact announcements\n\nFormat:\n# AI Hardware\n\n- concise bullets\n- strategic implications\n- infrastructure impact\n- future trends\n\nIMPORTANT:\n- Maximum 1500 characters\n- High signal only\n\nArticles:\n{{ JSON.stringify($input.all()) }}"
+            }
+          ]
+        },
+        "builtInTools": {
+          "webSearch": {
+            "searchContextSize": "medium"
+          }
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        2816,
+        5824
+      ],
+      "id": "55d171a0-bca0-4a78-ad73-240c8620577b",
+      "name": "Daily AI Intelligence Digest16",
+      "credentials": {
+        "openAiApi": {
+          "id": "K8iLaOaCBwQLwV7B",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://discord.com/api/webhooks/REDACTED",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "content",
+              "value": "={{$json.content}}"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        7232,
+        4864
+      ],
+      "id": "41d6166f-ea8e-4f09-9563-542d23f201fe",
+      "name": "ai-regulation",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://discord.com/api/webhooks/REDACTED",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "content",
+              "value": "={{$json.content}}"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        7248,
+        5200
+      ],
+      "id": "5878dc1a-df40-4de0-881c-748246658efa",
+      "name": "funding-mna",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://discord.com/api/webhooks/REDACTED",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "content",
+              "value": "={{$json.content}}"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        7296,
+        5520
+      ],
+      "id": "03530c64-6870-4a3f-9253-37e85966bebf",
+      "name": "build-opportunities",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://discord.com/api/webhooks/REDACTED",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "content",
+              "value": "={{$json.content}}"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        7296,
+        5872
+      ],
+      "id": "981d66fa-88ed-45ee-9fe9-9aec0e346483",
+      "name": "ai-hardware",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "numberInputs": 10
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        5168,
+        2112
+      ],
+      "id": "01ea0dbf-8b4c-4412-b26f-89482917fe86",
+      "name": "Merge7"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-5.4-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-5.4-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are an elite AI industry analyst.\n\nYou will receive summarized updates from multiple AI categories including:\n- model releases\n- research\n- startups\n- AI agents\n- infrastructure\n- open source\n- robotics\n- developer tools\n- enterprise AI\n- generative media\n- regulation\n- security\n- funding\n\nYour task:\nExtract ONLY the most important, highest-signal developments across the entire AI ecosystem.\n\nFocus on:\n- major industry shifts\n- important launches\n- ecosystem trends\n- future implications\n- strategic movements\n- emerging opportunities\n- breakthroughs that matter\n\nIgnore:\n- repetitive updates\n- minor announcements\n- marketing fluff\n- low-impact news\n\nOnly include developments with clear strategic, technological, or business significance.\n\nGood examples:\n- major funding rounds\n- frontier model releases\n- enterprise adoption\n- open-source breakthroughs\n- important acquisitions\n- major infrastructure launches\n- significant AI agent capabilities\n- regulation affecting the ecosystem\n\nBad examples:\n- generic product updates\n- small feature releases\n- vague hype announcements\n- repetitive benchmark claims\n\nOutput format:\n\n# AI Daily Brief\n\n## [SECTION NAME]\nHeadline\n\nWhy it matters:\n- concise explanation\n\nImplications:\n- concise future impact\n\nSources:\n- full URL\n- full URL\n\n---\n\nIMPORTANT:\n- Include the section/category for every item\n- Include 1-2 source links per item\n- Maximum 1800 characters total\n- Extremely concise\n- High signal only\n- Prioritize clarity over detail\n- Prefer fewer high-quality items over many weak ones\n\nUpdates:\n{{ JSON.stringify($input.all()) }}"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        6032,
+        2224
+      ],
+      "id": "7ebe0cfc-546c-401f-bd8c-e6f3a59ac2f0",
+      "name": "Daily AI Intelligence Digest",
+      "credentials": {
+        "openAiApi": {
+          "id": "K8iLaOaCBwQLwV7B",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "numberInputs": 10
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        5552,
+        2112
+      ],
+      "id": "5cf6c362-4b90-4267-9765-201011ebd123",
+      "name": "Merge8"
+    },
+    {
+      "parameters": {
+        "numberInputs": 10
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        5184,
+        2704
+      ],
+      "id": "b4bb2c81-57c0-4275-bddf-ebd3bb31e7fd",
+      "name": "Merge9"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c50d3d34-70aa-425b-b959-6c8570a50fc2",
+              "name": "ai_news",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "82abee89-ae81-46f9-a471-f0f00ab77b89",
+              "name": "model_news",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "ab1bd777-3c48-4c08-801e-f1acc08206fb",
+              "name": "research_news",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "0faba73d-092b-45ba-9528-1172e216168e",
+              "name": "startup_news",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "bf325e85-e338-40df-9fcf-dd4d6ac50b9b",
+              "name": "ai_agents",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "f0bc2d19-0908-4f40-afb0-80551509bde2",
+              "name": "open_source_ai",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "ac4c01f9-9c51-4937-a231-294694f42c9f",
+              "name": "infrastructure_ai",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "8264d976-156e-49b1-bf9d-3f7d46fd42ff",
+              "name": "robotics_ai",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "812e7c0f-e512-4b68-9a50-f94b200ced4c",
+              "name": "coding_tools",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "d359a974-0813-447c-8a22-75dde9b34814",
+              "name": "enterprise_ai",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "afd2a577-2a99-4d52-bad4-4e785d4f72a5",
+              "name": "video_image_ai",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "8c8b2777-fa00-49e5-8ae7-eb23c8330440",
+              "name": "future_trends",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "82bc8a31-87ff-4e9a-8451-af2766e26620",
+              "name": "security_ai",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "5659b087-42e1-4b7d-930f-cfe8ae34d8a6",
+              "name": "ai_regulation",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "13805c55-9fd2-44bd-abd6-0e899d04af23",
+              "name": "funding_mna",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "2eeccb4f-ab49-41bd-91bb-a840f7a636de",
+              "name": "build_opportunities",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "0823af36-c9b7-4ee1-9b71-993e9a714ad3",
+              "name": "ai_hardware",
+              "value": true,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        304,
+        2256
+      ],
+      "id": "3b37f8d9-431f-451d-9396-be7b9f8d865d",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "49e712dd-5718-4b34-a954-2162bc429b28",
+              "leftValue": "={{$json.model_news}}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2400,
+        16
+      ],
+      "id": "2ee9d165-a74a-499a-a8d5-77f0576085ee",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "49e712dd-5718-4b34-a954-2162bc429b28",
+              "leftValue": "={{$json.research_news}}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2400,
+        512
+      ],
+      "id": "b2c7418f-9227-4d66-966b-50b2524b9ab6",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "49e712dd-5718-4b34-a954-2162bc429b28",
+              "leftValue": "={{$json.startup_news}}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2384,
+        1040
+      ],
+      "id": "940bfca7-d77b-45dc-a5ad-5a24e6138371",
+      "name": "If2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "49e712dd-5718-4b34-a954-2162bc429b28",
+              "leftValue": "={{$json.ai_agents}}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2384,
+        1504
+      ],
+      "id": "6e5a4910-f01e-4182-90d9-ca7a3604153d",
+      "name": "If3"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "49e712dd-5718-4b34-a954-2162bc429b28",
+              "leftValue": "={{$json.open_source_ai}}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2368,
+        1872
+      ],
+      "id": "9f8b0fb3-4458-45d4-ac2d-f1d9bf3c8bef",
+      "name": "If4"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "49e712dd-5718-4b34-a954-2162bc429b28",
+              "leftValue": "={{$json.infrastructure_ai}}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2368,
+        2304
+      ],
+      "id": "28b61ecc-03e1-47f9-b035-9fd9edf48765",
+      "name": "If5"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "49e712dd-5718-4b34-a954-2162bc429b28",
+              "leftValue": "={{$json.robotics_ai}}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2368,
+        2704
+      ],
+      "id": "08ea7e98-d502-4516-9676-f5428f3e7168",
+      "name": "If6"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "49e712dd-5718-4b34-a954-2162bc429b28",
+              "leftValue": "={{$json.coding_tools}}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2368,
+        3104
+      ],
+      "id": "cb27d880-f889-4374-8f2b-1e0995e69d51",
+      "name": "If7"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "49e712dd-5718-4b34-a954-2162bc429b28",
+              "leftValue": "={{$json.enterprise_ai}}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2368,
+        3488
+      ],
+      "id": "96d76601-16ed-4f7d-9bcc-6ca490c6915f",
+      "name": "If8"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "49e712dd-5718-4b34-a954-2162bc429b28",
+              "leftValue": "={{$json.video_image_ai}}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2368,
+        3872
+      ],
+      "id": "e33a88c1-9354-4505-9ec1-d90b81588cd4",
+      "name": "If9"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "49e712dd-5718-4b34-a954-2162bc429b28",
+              "leftValue": "={{$json.future_trends}}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2368,
+        4256
+      ],
+      "id": "a85718f9-08f5-439d-8dea-4ac4a2e9f75e",
+      "name": "If10"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "49e712dd-5718-4b34-a954-2162bc429b28",
+              "leftValue": "={{$json.security_ai}}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2368,
+        4576
+      ],
+      "id": "c49ad232-7b32-47ec-ac04-a924a5688826",
+      "name": "If11"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "49e712dd-5718-4b34-a954-2162bc429b28",
+              "leftValue": "={{$json.ai_regulation}}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2352,
+        4896
+      ],
+      "id": "d1a13b04-9f60-44ba-b84c-a56f305ae178",
+      "name": "If12"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "49e712dd-5718-4b34-a954-2162bc429b28",
+              "leftValue": "={{$json.funding_mna}}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2352,
+        5200
+      ],
+      "id": "009a828a-9829-49ab-9eae-56cefc325df3",
+      "name": "If13"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "49e712dd-5718-4b34-a954-2162bc429b28",
+              "leftValue": "={{$json.build_opportunities}}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2336,
+        5520
+      ],
+      "id": "cad33dc9-48a9-4282-bae1-d3d7e6225b44",
+      "name": "If14"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "49e712dd-5718-4b34-a954-2162bc429b28",
+              "leftValue": "={{$json.ai_hardware}}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2352,
+        5856
+      ],
+      "id": "ed589bb3-3386-4d90-8878-33e581d246cb",
+      "name": "If15"
+    },
+    {
+      "parameters": {
+        "jsCode": "const text = $json.output[0].content[0].text;\nconst chunks = [];\n\nfor (let i = 0; i < text.length; i += 1900) {\n  chunks.push({\n    json: {\n      content: text.substring(i, i + 1900)\n    }\n  });\n}\n\nreturn chunks;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5376,
+        96
+      ],
+      "id": "5b44efc0-7ca0-4016-adcb-d6f7d9f819c6",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "jsCode": "const text = $json.output[0].content[0].text;\nconst chunks = [];\n\nfor (let i = 0; i < text.length; i += 1900) {\n  chunks.push({\n    json: {\n      content: text.substring(i, i + 1900)\n    }\n  });\n}\n\nreturn chunks;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5408,
+        560
+      ],
+      "id": "cc2d7557-2317-4ccd-8e08-a99e17ea6226",
+      "name": "Code in JavaScript1"
+    },
+    {
+      "parameters": {
+        "jsCode": "const text = $json.output[0].content[0].text;\nconst chunks = [];\n\nfor (let i = 0; i < text.length; i += 1900) {\n  chunks.push({\n    json: {\n      content: text.substring(i, i + 1900)\n    }\n  });\n}\n\nreturn chunks;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6480,
+        2224
+      ],
+      "id": "e92674d5-9adf-49f0-82d7-cebfde1390f5",
+      "name": "Code in JavaScript2"
+    },
+    {
+      "parameters": {
+        "jsCode": "const text = $json.output[0].content[0].text;\nconst chunks = [];\n\nfor (let i = 0; i < text.length; i += 1900) {\n  chunks.push({\n    json: {\n      content: text.substring(i, i + 1900)\n    }\n  });\n}\n\nreturn chunks;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5472,
+        1120
+      ],
+      "id": "2883c7b3-0439-45e3-8ec9-0d8578273487",
+      "name": "Code in JavaScript3"
+    },
+    {
+      "parameters": {
+        "jsCode": "const text = $json.output[0].content[0].text;\nconst chunks = [];\n\nfor (let i = 0; i < text.length; i += 1900) {\n  chunks.push({\n    json: {\n      content: text.substring(i, i + 1900)\n    }\n  });\n}\n\nreturn chunks;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5504,
+        1552
+      ],
+      "id": "5f30f2b8-7d18-482e-908b-f3aa0d68664c",
+      "name": "Code in JavaScript4"
+    },
+    {
+      "parameters": {
+        "jsCode": "const text = $json.output[0].content[0].text;\nconst chunks = [];\n\nfor (let i = 0; i < text.length; i += 1900) {\n  chunks.push({\n    json: {\n      content: text.substring(i, i + 1900)\n    }\n  });\n}\n\nreturn chunks;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5504,
+        1872
+      ],
+      "id": "9820dc1c-7cc0-43dc-b436-88d12d8f51d2",
+      "name": "Code in JavaScript5"
+    },
+    {
+      "parameters": {
+        "jsCode": "const text = $json.output[0].content[0].text;\nconst chunks = [];\n\nfor (let i = 0; i < text.length; i += 1900) {\n  chunks.push({\n    json: {\n      content: text.substring(i, i + 1900)\n    }\n  });\n}\n\nreturn chunks;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5648,
+        2640
+      ],
+      "id": "9eff807c-6369-4e32-bfca-c701c5520774",
+      "name": "Code in JavaScript6"
+    },
+    {
+      "parameters": {
+        "jsCode": "const text = $json.output[0].content[0].text;\nconst chunks = [];\n\nfor (let i = 0; i < text.length; i += 1900) {\n  chunks.push({\n    json: {\n      content: text.substring(i, i + 1900)\n    }\n  });\n}\n\nreturn chunks;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5664,
+        3120
+      ],
+      "id": "336c1d97-548a-459a-97ad-921e03118315",
+      "name": "Code in JavaScript7"
+    },
+    {
+      "parameters": {
+        "jsCode": "const text = $json.output[0].content[0].text;\nconst chunks = [];\n\nfor (let i = 0; i < text.length; i += 1900) {\n  chunks.push({\n    json: {\n      content: text.substring(i, i + 1900)\n    }\n  });\n}\n\nreturn chunks;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5664,
+        3360
+      ],
+      "id": "0da1f041-45c8-495c-bf82-6b370afddf21",
+      "name": "Code in JavaScript8"
+    },
+    {
+      "parameters": {
+        "jsCode": "const text = $json.output[0].content[0].text;\nconst chunks = [];\n\nfor (let i = 0; i < text.length; i += 1900) {\n  chunks.push({\n    json: {\n      content: text.substring(i, i + 1900)\n    }\n  });\n}\n\nreturn chunks;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5696,
+        3664
+      ],
+      "id": "094b4c2e-e2d4-4bdb-ac8a-bb80caf7cb71",
+      "name": "Code in JavaScript9"
+    },
+    {
+      "parameters": {
+        "jsCode": "const text = $json.output[0].content[0].text;\nconst chunks = [];\n\nfor (let i = 0; i < text.length; i += 1900) {\n  chunks.push({\n    json: {\n      content: text.substring(i, i + 1900)\n    }\n  });\n}\n\nreturn chunks;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5712,
+        3952
+      ],
+      "id": "1540f86d-d6e5-49a7-abd7-035b76e6dbc9",
+      "name": "Code in JavaScript10"
+    },
+    {
+      "parameters": {
+        "jsCode": "const text = $json.output[0].content[0].text;\nconst chunks = [];\n\nfor (let i = 0; i < text.length; i += 1900) {\n  chunks.push({\n    json: {\n      content: text.substring(i, i + 1900)\n    }\n  });\n}\n\nreturn chunks;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5712,
+        4272
+      ],
+      "id": "127dbb1c-6f2a-4b54-9b74-9c0466438137",
+      "name": "Code in JavaScript11"
+    },
+    {
+      "parameters": {
+        "jsCode": "const text = $json.output[0].content[0].text;\nconst chunks = [];\n\nfor (let i = 0; i < text.length; i += 1900) {\n  chunks.push({\n    json: {\n      content: text.substring(i, i + 1900)\n    }\n  });\n}\n\nreturn chunks;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5696,
+        4592
+      ],
+      "id": "fef34e36-0504-4a60-933a-ef2b2b3d2b1e",
+      "name": "Code in JavaScript12"
+    },
+    {
+      "parameters": {
+        "jsCode": "const text = $json.output[0].content[0].text;\nconst chunks = [];\n\nfor (let i = 0; i < text.length; i += 1900) {\n  chunks.push({\n    json: {\n      content: text.substring(i, i + 1900)\n    }\n  });\n}\n\nreturn chunks;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5728,
+        4896
+      ],
+      "id": "9f628fcf-4b09-4475-96ce-b22b41cdb23d",
+      "name": "Code in JavaScript13"
+    },
+    {
+      "parameters": {
+        "jsCode": "const text = $json.output[0].content[0].text;\nconst chunks = [];\n\nfor (let i = 0; i < text.length; i += 1900) {\n  chunks.push({\n    json: {\n      content: text.substring(i, i + 1900)\n    }\n  });\n}\n\nreturn chunks;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5712,
+        5280
+      ],
+      "id": "a2f41145-539d-4672-99ce-7dd61bddeeda",
+      "name": "Code in JavaScript14"
+    },
+    {
+      "parameters": {
+        "jsCode": "const text = $json.output[0].content[0].text;\nconst chunks = [];\n\nfor (let i = 0; i < text.length; i += 1900) {\n  chunks.push({\n    json: {\n      content: text.substring(i, i + 1900)\n    }\n  });\n}\n\nreturn chunks;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5680,
+        5552
+      ],
+      "id": "cfa50d1b-4255-4b30-903d-60fb04f63ad2",
+      "name": "Code in JavaScript15"
+    },
+    {
+      "parameters": {
+        "jsCode": "const text = $json.output[0].content[0].text;\nconst chunks = [];\n\nfor (let i = 0; i < text.length; i += 1900) {\n  chunks.push({\n    json: {\n      content: text.substring(i, i + 1900)\n    }\n  });\n}\n\nreturn chunks;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5648,
+        5888
+      ],
+      "id": "369400ce-7a69-4198-9192-c1a51a4cb00a",
+      "name": "Code in JavaScript16"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Daily AI Intelligence Digest2": {
+      "main": [
+        [
+          {
+            "node": "Merge7",
+            "type": "main",
+            "index": 1
+          },
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Daily AI Intelligence Digest1": {
+      "main": [
+        [
+          {
+            "node": "Merge7",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Daily AI Intelligence Digest3": {
+      "main": [
+        [
+          {
+            "node": "Merge7",
+            "type": "main",
+            "index": 2
+          },
+          {
+            "node": "Code in JavaScript3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Daily AI Intelligence Digest4": {
+      "main": [
+        [
+          {
+            "node": "Merge7",
+            "type": "main",
+            "index": 3
+          },
+          {
+            "node": "Code in JavaScript4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Daily AI Intelligence Digest5": {
+      "main": [
+        [
+          {
+            "node": "Merge7",
+            "type": "main",
+            "index": 4
+          },
+          {
+            "node": "Code in JavaScript5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Daily AI Intelligence Digest6": {
+      "main": [
+        [
+          {
+            "node": "Merge7",
+            "type": "main",
+            "index": 5
+          },
+          {
+            "node": "Code in JavaScript6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Daily AI Intelligence Digest7": {
+      "main": [
+        [
+          {
+            "node": "Merge7",
+            "type": "main",
+            "index": 6
+          },
+          {
+            "node": "Code in JavaScript7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Daily AI Intelligence Digest8": {
+      "main": [
+        [
+          {
+            "node": "Merge7",
+            "type": "main",
+            "index": 7
+          },
+          {
+            "node": "Code in JavaScript8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Daily AI Intelligence Digest9": {
+      "main": [
+        [
+          {
+            "node": "Merge7",
+            "type": "main",
+            "index": 8
+          },
+          {
+            "node": "Code in JavaScript9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Daily AI Intelligence Digest10": {
+      "main": [
+        [
+          {
+            "node": "Merge7",
+            "type": "main",
+            "index": 9
+          },
+          {
+            "node": "Code in JavaScript10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Daily AI Intelligence Digest11": {
+      "main": [
+        [
+          {
+            "node": "Merge9",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Code in JavaScript11",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Daily AI Intelligence Digest12": {
+      "main": [
+        [
+          {
+            "node": "Merge9",
+            "type": "main",
+            "index": 1
+          },
+          {
+            "node": "Code in JavaScript12",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Daily AI Intelligence Digest13": {
+      "main": [
+        [
+          {
+            "node": "Merge9",
+            "type": "main",
+            "index": 2
+          },
+          {
+            "node": "Code in JavaScript13",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Daily AI Intelligence Digest14": {
+      "main": [
+        [
+          {
+            "node": "Merge9",
+            "type": "main",
+            "index": 3
+          },
+          {
+            "node": "Code in JavaScript14",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Daily AI Intelligence Digest15": {
+      "main": [
+        [
+          {
+            "node": "Merge9",
+            "type": "main",
+            "index": 4
+          },
+          {
+            "node": "Code in JavaScript15",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Daily AI Intelligence Digest16": {
+      "main": [
+        [
+          {
+            "node": "Merge9",
+            "type": "main",
+            "index": 5
+          },
+          {
+            "node": "Code in JavaScript16",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge7": {
+      "main": [
+        [
+          {
+            "node": "Merge8",
+            "type": "main",
+            "index": 5
+          }
+        ]
+      ]
+    },
+    "Daily AI Intelligence Digest": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge8": {
+      "main": [
+        [
+          {
+            "node": "Daily AI Intelligence Digest",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge9": {
+      "main": [
+        [
+          {
+            "node": "Merge8",
+            "type": "main",
+            "index": 6
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "If4",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "If3",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "If2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "If5",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "If6",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "If7",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "If8",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "If9",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "If10",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "If11",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "If12",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "If13",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "If14",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "If15",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Daily AI Intelligence Digest1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Daily AI Intelligence Digest2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If2": {
+      "main": [
+        [
+          {
+            "node": "Daily AI Intelligence Digest3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If3": {
+      "main": [
+        [
+          {
+            "node": "Daily AI Intelligence Digest4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If4": {
+      "main": [
+        [
+          {
+            "node": "Daily AI Intelligence Digest5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If5": {
+      "main": [
+        [
+          {
+            "node": "Daily AI Intelligence Digest6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If6": {
+      "main": [
+        [
+          {
+            "node": "Daily AI Intelligence Digest7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If7": {
+      "main": [
+        [
+          {
+            "node": "Daily AI Intelligence Digest8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If8": {
+      "main": [
+        [
+          {
+            "node": "Daily AI Intelligence Digest9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If9": {
+      "main": [
+        [
+          {
+            "node": "Daily AI Intelligence Digest10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If10": {
+      "main": [
+        [
+          {
+            "node": "Daily AI Intelligence Digest11",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If11": {
+      "main": [
+        [
+          {
+            "node": "Daily AI Intelligence Digest12",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If12": {
+      "main": [
+        [
+          {
+            "node": "Daily AI Intelligence Digest13",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If13": {
+      "main": [
+        [
+          {
+            "node": "Daily AI Intelligence Digest14",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If14": {
+      "main": [
+        [
+          {
+            "node": "Daily AI Intelligence Digest15",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If15": {
+      "main": [
+        [
+          {
+            "node": "Daily AI Intelligence Digest16",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "model-news",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "research-news",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript2": {
+      "main": [
+        [
+          {
+            "node": "ai-news",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript3": {
+      "main": [
+        [
+          {
+            "node": "startup-news",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript4": {
+      "main": [
+        [
+          {
+            "node": "ai-agents",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript5": {
+      "main": [
+        [
+          {
+            "node": "open-source-ai",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript6": {
+      "main": [
+        [
+          {
+            "node": "infrastructure-ai",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript7": {
+      "main": [
+        [
+          {
+            "node": "robotics-ai",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript8": {
+      "main": [
+        [
+          {
+            "node": "coding-tools",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript9": {
+      "main": [
+        [
+          {
+            "node": "enterprise-ai",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript10": {
+      "main": [
+        [
+          {
+            "node": "video-image-ai",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript11": {
+      "main": [
+        [
+          {
+            "node": "future-trends",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript12": {
+      "main": [
+        [
+          {
+            "node": "security-ai",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript13": {
+      "main": [
+        [
+          {
+            "node": "ai-regulation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript14": {
+      "main": [
+        [
+          {
+            "node": "funding-mna",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript15": {
+      "main": [
+        [
+          {
+            "node": "build-opportunities",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript16": {
+      "main": [
+        [
+          {
+            "node": "ai-hardware",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "f90b9214-2e6c-4e6b-99d2-9c2c2cfc69c6",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "37e4235b2c320021b3dbe476a2f8b4145c1df81af534fc69d6c035d976a6a01f"
+  },
+  "id": "SkGL5bbvsvyYg1M5",
+  "tags": []
+}
